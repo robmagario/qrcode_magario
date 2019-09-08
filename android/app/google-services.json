@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "407361287884",
+    "firebase_url": "https://qrcode-magario.firebaseio.com",
+    "project_id": "qrcode-magario",
+    "storage_bucket": "qrcode-magario.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407361287884:android:19141dbab15a1ed2517469",
+        "android_client_info": {
+          "package_name": "com.example.qrcode_magario"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "407361287884-5685l39mqh9uovotd64ogkpetitm4v0l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.qrcode_magario",
+            "certificate_hash": "e2ab809e8bedccd2167c7eab83d48afc780a3f60"
+          }
+        },
+        {
+          "client_id": "407361287884-gc8opbkbtb27v8p6nht50eardfrmlj5q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBS4f2yH3mg9GneCWP-anLElcCn3-IT8I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "407361287884-gc8opbkbtb27v8p6nht50eardfrmlj5q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
