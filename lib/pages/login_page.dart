@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:qrcode_magario/utils/colors.dart';
+import 'package:line_icons/line_icons.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -24,22 +26,54 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: primaryColor),
+    );
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Firebase Email Login'),
-      ),
-      body: Center(
+        resizeToAvoidBottomPadding: false,
+
+        body: Center(
+        child: Container (
+          padding: EdgeInsets.only(top: 150.0, left: 30.0, right: 30.0),
+          decoration: BoxDecoration(gradient: primaryGradient),
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+
+
         children: [
+          Text(
+            "Log In.",
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+
+              fontSize: 45.0,
+            ),
+          ),
+          Text (
+          "We missed you!",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18.0,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
           Card(
+            elevation: 0, //solves the problem of gray background in transparent background
+            color: Colors.transparent,
             child: Padding(
               padding: EdgeInsets.all(10),
+
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Form(
                     key: _formStateKey,
                     autovalidate: true,
+
                     child: Column(
                       children: <Widget>[
                         Padding(
@@ -53,20 +87,17 @@ class _LoginPageState extends State<LoginPage> {
                             keyboardType: TextInputType.emailAddress,
                             controller: _emailIdController,
                             decoration: InputDecoration(
-                              focusedBorder: new UnderlineInputBorder(
-                                borderSide: new BorderSide(
-                                    color: Colors.green,
-                                    width: 2,
-                                    style: BorderStyle.solid),
-                              ),
-                              labelText: "Email Id",
-                              icon: Icon(
+                              labelText: 'Email Address',
+                              labelStyle: TextStyle(color: Colors.white),
+                              prefixIcon: Icon(
                                 Icons.email,
-                                color: Colors.green,
+                                color: Colors.white,
                               ),
-                              fillColor: Colors.white,
-                              labelStyle: TextStyle(
-                                color: Colors.green,
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
                               ),
                             ),
                           ),
@@ -82,19 +113,18 @@ class _LoginPageState extends State<LoginPage> {
                             controller: _passwordController,
                             obscureText: true,
                             decoration: InputDecoration(
-                              focusedBorder: new UnderlineInputBorder(
-                                  borderSide: new BorderSide(
-                                      color: Colors.green,
-                                      width: 2,
-                                      style: BorderStyle.solid)),
+
                               labelText: "Password",
+                              labelStyle: TextStyle(color: Colors.white),
                               icon: Icon(
                                 Icons.lock,
-                                color: Colors.green,
+                                color: Colors.white,
                               ),
-                              fillColor: Colors.white,
-                              labelStyle: TextStyle(
-                                color: Colors.green,
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
                               ),
                             ),
                           ),
@@ -116,7 +146,7 @@ class _LoginPageState extends State<LoginPage> {
                             'LOGIN',
                             style: TextStyle(
                               fontSize: 18,
-                              color: Colors.green,
+                              color: Colors.white,
                             ),
                           ),
                           onPressed: () {
@@ -141,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                             'Get Register',
                             style: TextStyle(
                               fontSize: 12,
-                              color: Colors.green,
+                              color: Colors.white,
                             ),
                           ),
                           onPressed: () {
@@ -169,7 +199,7 @@ class _LoginPageState extends State<LoginPage> {
               : Container()),
           (!isGoogleSignIn
               ? RaisedButton(
-                  child: Text('Google Login'),
+                  child: Text('Continue with Google'),
                   onPressed: () {
                     googleSignin(context).then((user) {
                       if (user != null) {
@@ -200,6 +230,7 @@ class _LoginPageState extends State<LoginPage> {
                 )),
         ],
       )),
+      )
     );
   }
 
